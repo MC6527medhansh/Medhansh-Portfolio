@@ -1,4 +1,4 @@
-'use client'; // Enables client-side rendering for this page
+"use client"; // Enables client-side rendering for this page
 
 // Importing required modules and components
 import { Canvas } from '@react-three/fiber'; // For rendering 3D content
@@ -16,6 +16,7 @@ import FruitNinjaProject from '@/components/projects/fruit-ninja-project'; // 3D
 import EmployeeAttritionProject from '@/components/projects/employee-attrition-project'; // 3D project for Employee Attrition
 import MeteorDemo from '@/components/ui/MeteorDemo'; // Import MeteorDemo component
 import BoxReveal from '@/components/ui/box-reveal'; // Import BoxReveal for animated headings
+import {ParticlesDemo} from '@/components/ui/particlesDemo'; // Import ParticlesDemo component
 
 export default function PortfolioPage() {
   return (
@@ -76,15 +77,9 @@ export default function PortfolioPage() {
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-black">Experience</h2>
             </BoxReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="h-[300px] bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-                <Canvas>
-                  <Suspense fallback={null}>
-                    <OrbitControls enableZoom={false} />
-                    <ambientLight intensity={0.5} />
-                    <directionalLight position={[10, 10, 5]} intensity={1} />
-                    <IITDelhiExperience />
-                  </Suspense>
-                </Canvas>
+              <div className="h-[300px] bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden relative">
+                <ParticlesDemo children={undefined} />
+                <IITDelhiExperience />
               </div>
               <div className="h-[300px] bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
                 <Canvas>
