@@ -1,12 +1,15 @@
+'use client'
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Text, Float } from '@react-three/drei'
+import * as THREE from 'three'
 
 export default function EmployeeAttritionProject() {
-  const chartRef = useRef()
-
+  const chartRef = useRef<THREE.Group>(null)
   useFrame((state, delta) => {
-    chartRef.current.rotation.y += delta * 0.2
+    if (chartRef.current) {
+      (chartRef.current as any).rotation.y += delta * 0.2
+    }
   })
 
   return (

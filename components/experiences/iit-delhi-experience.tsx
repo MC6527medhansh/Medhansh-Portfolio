@@ -1,3 +1,4 @@
+'use client'
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Text, Float } from '@react-three/drei'
@@ -10,10 +11,11 @@ export default function IITDelhiExperience() {
 }
 
 function Experience() {
-  const graphRef = useRef()
-
+  const graphRef = useRef<THREE.Group>(null)
   useFrame((state, delta) => {
-    graphRef.current.rotation.y += delta * 0.2
+    if (graphRef.current) {
+      (graphRef.current as THREE.Group).rotation.y += delta * 0.2
+    }
   })
 
   return (
@@ -34,7 +36,7 @@ function Experience() {
             <line key={i}>
               <bufferGeometry attach="geometry">
                 <bufferAttribute
-                  attachObject={['attributes', 'position']}
+                  attach="attributes-position"
                   count={2}
                   array={new Float32Array([...start.toArray(), ...end.toArray()])}
                   itemSize={3}

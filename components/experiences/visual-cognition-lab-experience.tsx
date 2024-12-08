@@ -1,12 +1,15 @@
+'use client'
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Text, Float } from '@react-three/drei'
+import * as THREE from 'three'
 
 export default function VisualCognitionLabExperience() {
-  const labRef = useRef()
-
+  const labRef = useRef<THREE.Group>(null)
   useFrame((state, delta) => {
-    labRef.current.rotation.y += delta * 0.2
+    if (labRef.current) {
+      (labRef.current as any).rotation.y += delta * 0.2
+    }
   })
 
   return (

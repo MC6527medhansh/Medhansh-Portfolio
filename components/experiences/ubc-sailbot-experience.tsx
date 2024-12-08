@@ -1,3 +1,4 @@
+'use client'
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Text, Float } from '@react-three/drei'
@@ -7,13 +8,13 @@ export default function UBCSailbotExperience() {
     <Experience />
   )
 }
-
 function Experience() {
-  const boatRef = useRef()
-
+  const boatRef = useRef<import("three").Group>(null)
   useFrame((state, delta) => {
-    boatRef.current.rotation.y += delta * 0.2
-    boatRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1
+    if (boatRef.current) {
+      boatRef.current.rotation.y += delta * 0.2
+      boatRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1
+    }
   })
 
   return (

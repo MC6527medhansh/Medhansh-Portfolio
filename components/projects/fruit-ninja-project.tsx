@@ -1,13 +1,16 @@
+'use client'
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Text, Float } from '@react-three/drei'
+import * as THREE from 'three'
 
 export default function FruitNinjaProject() {
-  const fruitRef = useRef()
-
+  const fruitRef = useRef<THREE.Group>(null)
   useFrame((state, delta) => {
-    fruitRef.current.rotation.x += delta * 0.5
-    fruitRef.current.rotation.y += delta * 0.2
+    if (fruitRef.current) {
+      (fruitRef.current as any).rotation.x += delta * 0.5;
+      (fruitRef.current as any).rotation.y += delta * 0.2;
+    }
   })
 
   return (
