@@ -7,7 +7,7 @@ export default function MeteorDemo() {
   return (
     <div className="relative h-[500px] w-full flex flex-col items-center justify-center overflow-hidden bg-[#003366]">
       {/* Meteors Background */}
-      <Meteors number={50} />
+      <Meteors number={90} />
 
       {/* Hero Content */}
       <div className="absolute z-10 text-center">

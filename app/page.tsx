@@ -98,7 +98,7 @@ export default function PortfolioPage() {
             <BoxReveal boxColor="#003366" duration={0.5}>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-black text-center">Projects</h2>
             </BoxReveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
               <div className="h-[300px] bg-gray-100 dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">
                 <Canvas>
                   <Suspense fallback={null}>
@@ -106,6 +106,16 @@ export default function PortfolioPage() {
                     <ambientLight intensity={0.5} />
                     <directionalLight position={[10, 10, 5]} intensity={1} />
                     <FruitNinjaProject />
+                  </Suspense>
+                </Canvas>
+              </div>
+              <div className="h-[300px] bg-gray-100 dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">
+                <Canvas>
+                  <Suspense fallback={null}>
+                    <OrbitControls enableZoom={false} />
+                    <ambientLight intensity={0.5} />
+                    <directionalLight position={[10, 10, 5]} intensity={1} />
+                    <EmployeeAttritionProject />
                   </Suspense>
                 </Canvas>
               </div>
@@ -144,7 +154,11 @@ export default function PortfolioPage() {
                 'Firebase',
                 'GitHub',
               ].map((skill) => (
-                <div key={skill} className="bg-white dark:bg-gray-700 rounded-lg shadow p-4 text-center text-black">
+                <div 
+                  key={skill} 
+                  className="rounded-lg shadow p-4 text-center text-white"
+                  style={{ backgroundColor: '#003366' }}
+                >
                   {skill}
                 </div>
               ))}

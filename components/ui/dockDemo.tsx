@@ -11,15 +11,15 @@ export function DockDemo() {
   const handleMail = () => window.open('mailto:medhanshchoubey230804@gmail.com', '_blank');
 
   return (
-    <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 z-50 bg-white shadow-lg rounded-lg px-4 py-2">
+    <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 bg-white shadow-lg rounded-2xl px-6 py-3">
       <Dock direction="middle">
-        <DockIcon onClick={handleGitHub}>
+        <DockIcon>
           <Icons.gitHub className="size-6" />
         </DockIcon>
-        <DockIcon onClick={handleLinkedIn}>
+        <DockIcon>
           <Icons.linkedin className="size-6" />
         </DockIcon>
-        <DockIcon onClick={handleMail}>
+        <DockIcon>
           <Icons.mail className="size-6" />
         </DockIcon>
       </Dock>
