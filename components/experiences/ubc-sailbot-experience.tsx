@@ -1,55 +1,37 @@
-'use client'
-import { useRef } from 'react'
-import { useFrame } from '@react-three/fiber'
-import { Text, Float } from '@react-three/drei'
-import * as THREE from 'three'
+'use client';
+
+import { Canvas } from '@react-three/fiber';
+import { Suspense } from 'react';
+import { OrbitControls } from '@react-three/drei';
+import BoatModel from '../ui/BoatModel';
+import ExperienceLogo from '../ui/ExperienceLogo';
 
 export default function UBCSailbotExperience() {
   return (
-    <Experience />
-  )
-}
-
-function Experience() {
-  const boatRef = useRef<THREE.Group>(null)
-  useFrame((state, delta) => {
-    if (boatRef.current) {
-      boatRef.current.rotation.y += delta * 0.2
-      boatRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1
-    }
-  })
-
-  return (
-    <Float speed={1.5} rotationIntensity={1} floatIntensity={2}>
-      <group ref={boatRef}>
-        {/* Boat body */}
-        <mesh position={[0, -0.5, 0]}>
-          <boxGeometry args={[2, 0.5, 1]} />
-          <meshStandardMaterial color="#2E86C1" />
-        </mesh>
-        {/* Sail */}
-        <mesh position={[0, 0.5, 0]}>
-          <coneGeometry args={[0.5, 2, 32]} />
-          <meshStandardMaterial color="#AED6F1" />
-        </mesh>
-        {/* Path Visualization */}
-        {[...Array(5)].map((_, i) => (
-          <mesh key={i} position={[i * 1.5 - 3, 0, 0]}>
-            <sphereGeometry args={[0.2, 16, 16]} />
-            <meshStandardMaterial color="#F7DC6F" />
-          </mesh>
-        ))}
-        {/* Labels */}
-        <Text position={[0, 2, 0]} fontSize={0.5} color="white" anchorX="center" anchorY="middle">
+    <div className="relative h-[300px] w-full overflow-hidden bg-black">
+      <ExperienceLogo 
+        src="/assets/logos/Screenshot 2024-12-08 at 12.49.45 PM.png" 
+        alt="UBC Sailbot Logo" 
+      />
+      <Canvas>
+        <Suspense fallback={null}>
+          <ambientLight intensity={0.5} />
+          <directionalLight position={[10, 10, 5]} intensity={1} />
+          <OrbitControls enableZoom={false} />
+          <BoatModel />
+        </Suspense>
+      </Canvas>
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-10 text-center">
+        <h1 className="text-3xl font-bold text-white drop-shadow-lg">
           UBC Sailbot
-        </Text>
-        <Text position={[0, 1.5, 0]} fontSize={0.3} color="white" anchorX="center" anchorY="middle">
-          Pathfinding Software
-        </Text>
-        <Text position={[0, -2, 0]} fontSize={0.2} color="white" anchorX="center" anchorY="middle" maxWidth={2.5}>
+        </h1>
+        <p className="mt-2 text-lg text-gray-200 drop-shadow-lg">
+          Pathfinding Software Developer
+        </p>
+        <p className="mt-2 text-sm text-gray-300 max-w-[300px] mx-auto drop-shadow-lg">
           Developed Polaris Heading Algorithm
-        </Text>
-      </group>
-    </Float>
-  )
+        </p>
+      </div>
+    </div>
+  );
 }

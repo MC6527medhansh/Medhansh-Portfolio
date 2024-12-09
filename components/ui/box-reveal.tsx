@@ -18,9 +18,8 @@ export const BoxReveal = ({
 }: BoxRevealProps) => {
   const mainControls = useAnimation();
   const slideControls = useAnimation();
-
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: false }); // Allow re-triggering the animation
 
   useEffect(() => {
     if (isInView) {

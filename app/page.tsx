@@ -18,6 +18,7 @@ import MeteorDemo from '@/components/ui/MeteorDemo'; // Import MeteorDemo compon
 import BoxReveal from '@/components/ui/box-reveal'; // Import BoxReveal for animated headings
 import {ParticlesDemo} from '@/components/ui/particlesDemo'; // Import ParticlesDemo component
 
+
 export default function PortfolioPage() {
   return (
     <div className="flex flex-col min-h-screen bg-darkgrey dark:bg-gray-900 relative">
@@ -50,19 +51,19 @@ export default function PortfolioPage() {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1">
+      <main className="flex flex-col items-center w-full">
         {/* Hero Section */}
         <section id="hero" className="w-full py-12 md:py-24 lg:py-32 xl:py-48 relative -mt-20">
           <MeteorDemo />
         </section>
 
         {/* About Section */}
-        <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-gray-800 -mt-10">
-          <div className="container px-4 md:px-6">
+        <section id="about" className="w-full py-2 md:py-5 bg-white dark:bg-gray-800">
+          <div className="flex flex-col items-center justify-center mx-auto text-center px-4 md:px-6 max-w-6xl min-h-[50vh]">
             <BoxReveal boxColor="#003366" duration={0.5}>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-black">About Me</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-black text-center">About Me</h2>
             </BoxReveal>
-            <p className="mt-4 max-w-[700px] text-black md:text-xl">
+            <p className="mt-4 text-black md:text-xl max-w-3xl mx-auto text-center">
               I'm a Statistics student at the University of British Columbia, passionate about data science and software
               development. With a strong foundation in computational structures and programming, I'm constantly seeking
               opportunities to apply my skills in real-world scenarios.
@@ -71,10 +72,10 @@ export default function PortfolioPage() {
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
+        <section id="experience" className="w-full py-16 md:py-24">
+          <div className="flex flex-col items-center justify-center mx-auto text-center px-4 md:px-6 max-w-6xl min-h-[50vh]">
             <BoxReveal boxColor="#003366" duration={0.5}>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-black">Experience</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-black text-center">Experience</h2>
             </BoxReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="h-[300px] bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden relative">
@@ -82,36 +83,22 @@ export default function PortfolioPage() {
                 <IITDelhiExperience />
               </div>
               <div className="h-[300px] bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-                <Canvas>
-                  <Suspense fallback={null}>
-                    <OrbitControls enableZoom={false} />
-                    <ambientLight intensity={0.5} />
-                    <directionalLight position={[10, 10, 5]} intensity={1} />
-                    <UBCSailbotExperience />
-                  </Suspense>
-                </Canvas>
+                <UBCSailbotExperience />
               </div>
               <div className="h-[300px] bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-                <Canvas>
-                  <Suspense fallback={null}>
-                    <OrbitControls enableZoom={false} />
-                    <ambientLight intensity={0.5} />
-                    <directionalLight position={[10, 10, 5]} intensity={1} />
-                    <VisualCognitionLabExperience />
-                  </Suspense>
-                </Canvas>
+                <VisualCognitionLabExperience />
               </div>
             </div>
           </div>
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-gray-800">
-          <div className="container px-4 md:px-6">
+        <section id="projects" className="w-full py-16 md:py-24 bg-white dark:bg-gray-800">
+          <div className="flex flex-col items-center justify-center mx-auto text-center px-4 md:px-6 max-w-6xl min-h-[50vh]">
             <BoxReveal boxColor="#003366" duration={0.5}>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-black">Projects</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-black text-center">Projects</h2>
             </BoxReveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <div className="h-[300px] bg-gray-100 dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">
                 <Canvas>
                   <Suspense fallback={null}>
@@ -137,12 +124,12 @@ export default function PortfolioPage() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
+        <section id="skills" className="w-full py-16 md:py-24">
+          <div className="flex flex-col items-center justify-center mx-auto text-center px-4 md:px-6 max-w-6xl min-h-[50vh]">
             <BoxReveal boxColor="#003366" duration={0.5}>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-black">Skills</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-black text-center">Skills</h2>
             </BoxReveal>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
               {[
                 'Python',
                 'Java',
@@ -166,10 +153,10 @@ export default function PortfolioPage() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-gray-800">
-          <div className="container px-4 md:px-6">
+        <section id="contact" className="w-full py-16 md:py-24 bg-white dark:bg-gray-800">
+          <div className="flex flex-col items-center justify-center mx-auto text-center px-4 md:px-6 max-w-6xl min-h-[50vh]">
             <BoxReveal boxColor="#003366" duration={0.5}>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-black">Contact Me</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-black text-center">Contact Me</h2>
             </BoxReveal>
             <form className="max-w-md mx-auto space-y-4">
               <Input type="text" placeholder="Name" />
