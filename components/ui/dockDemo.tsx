@@ -6,20 +6,21 @@ import { Dock, DockIcon } from "@/components/ui/dock";
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
 export function DockDemo() {
+  const handleGitHub = () => window.open('https://github.com/yourgithub', '_blank');
+  const handleLinkedIn = () => window.open('https://linkedin.com/in/medhansh-choubey', '_blank');
+  const handleMail = () => window.open('mailto:medhanshchoubey230804@gmail.com', '_blank');
+
   return (
     <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 z-50 bg-white shadow-lg rounded-lg px-4 py-2">
       <Dock direction="middle">
-        <DockIcon>
+        <DockIcon onClick={handleGitHub}>
           <Icons.gitHub className="size-6" />
         </DockIcon>
-        <DockIcon>
-          <Icons.gitHub className="size-6" />
+        <DockIcon onClick={handleLinkedIn}>
+          <Icons.linkedin className="size-6" />
         </DockIcon>
-        <DockIcon>
-          <Icons.gitHub className="size-6" />
-        </DockIcon>
-        <DockIcon>
-          <Icons.gitHub className="size-6" />
+        <DockIcon onClick={handleMail}>
+          <Icons.mail className="size-6" />
         </DockIcon>
       </Dock>
     </div>
@@ -35,5 +36,30 @@ const Icons = {
       ></path>
     </svg>
   ),
-  // Other icons...
+  linkedin: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" {...props}>
+      <path
+        fill="currentColor"
+        d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"
+      />
+    </svg>
+  ),
+  mail: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" {...props}>
+      <path
+        fill="currentColor"
+        d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+      />
+    </svg>
+  ),
+  sun: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" {...props}>
+      <path fill="currentColor" d="M12 17c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5zm0-8c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zm0-2V3c0-.6-.4-1-1-1s-1 .4-1 1v4c0 .6.4 1 1 1s1-.4 1-1zm0 14v-4c0-.6-.4-1-1-1s-1 .4-1 1v4c0 .6.4 1 1 1s1-.4 1-1zm9-7h-4c-.6 0-1 .4-1 1s.4 1 1 1h4c.6 0 1-.4 1-1s-.4-1-1-1zM3 12c0 .6.4 1 1 1h4c.6 0 1-.4 1-1s-.4-1-1-1H4c-.6 0-1 .4-1 1z"/>
+    </svg>
+  ),
+  moon: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" {...props}>
+      <path fill="currentColor" d="M12 3c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm0 16c-3.9 0-7-3.1-7-7s3.1-7 7-7 7 3.1 7 7-3.1 7-7 7z"/>
+    </svg>
+  )
 };
