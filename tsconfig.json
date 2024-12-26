@@ -13,6 +13,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "types": ["node", "@types/react", "@types/three", "@react-three/fiber"],
     "incremental": true,
     "plugins": [
       {
