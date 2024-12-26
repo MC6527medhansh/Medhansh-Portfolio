@@ -96,7 +96,7 @@ export default function PortfolioPage() {
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="w-full py-16 md:py-24 bg-white dark:bg-gray-800">
+        <section id="projects" className="w-full py-16 md:py-24 bg-white">
           <div className="flex flex-col items-center justify-center mx-auto text-center px-4 md:px-6 max-w-6xl min-h-[50vh]">
             <BoxReveal boxColor="#003366" duration={0.5}>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-black text-center">Projects</h2>

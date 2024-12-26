@@ -2,7 +2,8 @@
 
 export default function FruitNinjaGame() {
   return (
-    <div className="h-[300px] bg-gray-800 rounded-lg shadow-lg flex flex-col justify-between p-4">
+    <div className="h-[300px] bg-gray-800 rounded-lg shadow-lg flex flex-col justify-between p-4"
+         style={{ backgroundColor: '#003366' }}>
       {/* Project Title */}
       <h3 className="text-xl font-bold tracking-tight text-white mb-4">
         Fruit Ninja Game
@@ -13,7 +14,7 @@ export default function FruitNinjaGame() {
         {['Python', 'OpenCV', 'Mediapipe', 'Pygame'].map((skill) => (
           <span
             key={skill}
-            className="bg-gray-700 text-white px-3 py-1 rounded-md text-sm font-medium"
+            className="bg-white text-black px-3 py-1 rounded-md text-sm font-medium"
           >
             {skill}
           </span>
