@@ -1,18 +1,26 @@
-'use client'
+import { useRef } from 'react';
+import { useFrame } from '@react-three/fiber';
+import * as THREE from 'three';
 
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
-import { Suspense } from 'react'
+interface Experience3DProps {
+  position: [number, number, number]; // Array with 3 numbers
+  title: string;
+  role: string;
+  description: string;
+}
 
-export default function Experience3D({ children }: { children: React.ReactNode }) {
+export default function Experience3D({ position, title, role, description }: Experience3DProps) {
+  const meshRef = useRef<THREE.Mesh>(null);
+
+  useFrame((state, delta) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += delta * 0.2;
+    }
+  });
+
   return (
-    <Canvas>
-      <Suspense fallback={null}>
-        <OrbitControls enableZoom={false} />
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1} />
-        {children}
-      </Suspense>
-    </Canvas>
-  )
-} 
+    <mesh ref={meshRef} position={position}>
+      {/* Your 3D content here */}
+    </mesh>
+  );
+}
