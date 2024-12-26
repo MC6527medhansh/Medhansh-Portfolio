@@ -17,6 +17,9 @@ import EmployeeAttritionProject from '@/components/projects/employee-attrition-p
 import MeteorDemo from '@/components/ui/MeteorDemo'; // Import MeteorDemo component
 import BoxReveal from '@/components/ui/box-reveal'; // Import BoxReveal for animated headings
 import {ParticlesDemo} from '@/components/ui/particlesDemo'; // Import ParticlesDemo component
+import HTTPSServerProject from '@/components/projects/https-server';
+import FruitNinjaGame from '@/components/projects/fruit-ninja-project';
+
 
 
 export default function PortfolioPage() {
@@ -78,8 +81,8 @@ export default function PortfolioPage() {
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-black text-center">Experience</h2>
             </BoxReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="h-[300px] bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden relative">
-                <ParticlesDemo children={undefined} />
+              <div className="h-[300px] bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                <ParticlesDemo/>
                 <IITDelhiExperience />
               </div>
               <div className="h-[300px] bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
@@ -99,39 +102,13 @@ export default function PortfolioPage() {
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-black text-center">Projects</h2>
             </BoxReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              <div className="h-[300px] bg-gray-100 dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">
-                <Canvas>
-                  <Suspense fallback={null}>
-                    <OrbitControls enableZoom={false} />
-                    <ambientLight intensity={0.5} />
-                    <directionalLight position={[10, 10, 5]} intensity={1} />
-                    <FruitNinjaProject />
-                  </Suspense>
-                </Canvas>
-              </div>
-              <div className="h-[300px] bg-gray-100 dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">
-                <Canvas>
-                  <Suspense fallback={null}>
-                    <OrbitControls enableZoom={false} />
-                    <ambientLight intensity={0.5} />
-                    <directionalLight position={[10, 10, 5]} intensity={1} />
-                    <EmployeeAttritionProject />
-                  </Suspense>
-                </Canvas>
-              </div>
-              <div className="h-[300px] bg-gray-100 dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">
-                <Canvas>
-                  <Suspense fallback={null}>
-                    <OrbitControls enableZoom={false} />
-                    <ambientLight intensity={0.5} />
-                    <directionalLight position={[10, 10, 5]} intensity={1} />
-                    <EmployeeAttritionProject />
-                  </Suspense>
-                </Canvas>
-              </div>
+              <FruitNinjaGame />
+              <HTTPSServerProject />
+              <EmployeeAttritionProject />
             </div>
           </div>
         </section>
+
 
         {/* Skills Section */}
         <section id="skills" className="w-full py-16 md:py-24">
@@ -190,10 +167,10 @@ export default function PortfolioPage() {
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="text-sm text-black">© 2024 Medhansh Choubey. All rights reserved.</p>
             <div className="flex gap-4">
-              <Link href="https://github.com/yourgithub" className="text-black hover:text-gray-700">
+              <Link href="https://github.com/MC6527medhansh" className="text-black hover:text-gray-700">
                 <Github className="h-5 w-5" />
               </Link>
-              <Link href="https://linkedin.com/in/medhansh-choubey" className="text-black hover:text-gray-700">
+              <Link href="https://www.linkedin.com/in/medhanshchoubey" className="text-black hover:text-gray-700">
                 <Linkedin className="h-5 w-5" />
               </Link>
               <Link href="mailto:medhanshchoubey230804@gmail.com" className="text-black hover:text-gray-700">

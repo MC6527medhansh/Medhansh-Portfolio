@@ -1,43 +1,44 @@
-'use client'
-import { useRef } from 'react'
-import { useFrame } from '@react-three/fiber'
-import { Text, Float } from '@react-three/drei'
-import * as THREE from 'three'
+'use client';
 
-export default function FruitNinjaProject() {
-  const fruitRef = useRef<THREE.Group>(null)
-  useFrame((state, delta) => {
-    if (fruitRef.current) {
-      (fruitRef.current as any).rotation.x += delta * 0.5;
-      (fruitRef.current as any).rotation.y += delta * 0.2;
-    }
-  })
-
+export default function FruitNinjaGame() {
   return (
-    <Float speed={1.5} rotationIntensity={1} floatIntensity={2}>
-      <group ref={fruitRef}>
-        {/* Fruit representations */}
-        <mesh position={[-1, 0, 0]}>
-          <sphereGeometry args={[0.5, 32, 32]} />
-          <meshStandardMaterial color="#EA4335" />
-        </mesh>
-        <mesh position={[1, 0, 0]}>
-          <sphereGeometry args={[0.4, 32, 32]} />
-          <meshStandardMaterial color="#FBBC05" />
-        </mesh>
-        {/* Sword representation */}
-        <mesh position={[0, 1, 0]} rotation={[0, 0, Math.PI / 4]}>
-          <boxGeometry args={[0.1, 2, 0.1]} />
-          <meshStandardMaterial color="#4285F4" />
-        </mesh>
-        <Text position={[0, 2, 0]} fontSize={0.5} color="white" anchorX="center" anchorY="middle">
-          Gesture-Controlled Fruit Ninja
-        </Text>
-        <Text position={[0, -2, 0]} fontSize={0.2} color="white" anchorX="center" anchorY="middle" maxWidth={2.5}>
-          Using Mediapipe and Pygame
-        </Text>
-      </group>
-    </Float>
-  )
-}
+    <div className="h-[300px] bg-gray-800 rounded-lg shadow-lg flex flex-col justify-between p-4">
+      {/* Project Title */}
+      <h3 className="text-xl font-bold tracking-tight text-white mb-4">
+        Fruit Ninja Game
+      </h3>
 
+      {/* Skills Section */}
+      <div className="flex flex-wrap gap-2 mb-4">
+        {['Python', 'OpenCV', 'Mediapipe', 'Pygame'].map((skill) => (
+          <span
+            key={skill}
+            className="bg-gray-700 text-white px-3 py-1 rounded-md text-sm font-medium"
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
+
+      {/* Source Buttons */}
+      <div className="flex gap-4">
+        {/* <a
+          href="https://your-live-project-link.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-white text-black px-4 py-2 rounded-md text-sm font-medium"
+        >
+          Website
+        </a> */}
+        <a
+          href="https://github.com/your-repo-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-white text-black px-4 py-2 rounded-md text-sm font-medium"
+        >
+          Source
+        </a>
+      </div>
+    </div>
+  );
+}

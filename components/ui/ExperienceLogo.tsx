@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Image from 'next/image';
 
@@ -17,7 +17,8 @@ export default function ExperienceLogo({ src, alt, size = 50 }: ExperienceLogoPr
         width={size}
         height={size}
         className="rounded-full bg-white p-1"
+        priority 
       />
     </div>
   );
-} 
+}

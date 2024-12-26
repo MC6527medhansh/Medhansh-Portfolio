@@ -1,41 +1,44 @@
-'use client'
-import { useRef } from 'react'
-import { useFrame } from '@react-three/fiber'
-import { Text, Float } from '@react-three/drei'
-import * as THREE from 'three'
+'use client';
 
 export default function EmployeeAttritionProject() {
-  const chartRef = useRef<THREE.Group>(null)
-  useFrame((state, delta) => {
-    if (chartRef.current) {
-      (chartRef.current as any).rotation.y += delta * 0.2
-    }
-  })
-
   return (
-    <Float speed={1.5} rotationIntensity={1} floatIntensity={2}>
-      <group ref={chartRef}>
-        {/* Simple bar chart representation */}
-        <mesh position={[-1, 0.5, 0]}>
-          <boxGeometry args={[0.5, 1, 0.5]} />
-          <meshStandardMaterial color="#EA4335" />
-        </mesh>
-        <mesh position={[0, 0.75, 0]}>
-          <boxGeometry args={[0.5, 1.5, 0.5]} />
-          <meshStandardMaterial color="#FBBC05" />
-        </mesh>
-        <mesh position={[1, 1, 0]}>
-          <boxGeometry args={[0.5, 2, 0.5]} />
-          <meshStandardMaterial color="#34A853" />
-        </mesh>
-        <Text position={[0, 2, 0]} fontSize={0.5} color="white" anchorX="center" anchorY="middle">
-          Employee Attrition Prediction
-        </Text>
-        <Text position={[0, -2, 0]} fontSize={0.2} color="white" anchorX="center" anchorY="middle" maxWidth={2.5}>
-          KNN model with 82.11% accuracy
-        </Text>
-      </group>
-    </Float>
-  )
-}
+    <div className="h-[300px] bg-gray-800 rounded-lg shadow-lg flex flex-col justify-between p-4">
+      {/* Project Title */}
+      <h3 className="text-xl font-bold tracking-tight text-white mb-4">
+        Employee Attrition Prediction
+      </h3>
 
+      {/* Skills Section */}
+      <div className="flex flex-wrap gap-2 mb-4">
+        {['Python', 'scikit-learn', 'KNN', 'Pandas'].map((skill) => (
+          <span
+            key={skill}
+            className="bg-gray-700 text-white px-3 py-1 rounded-md text-sm font-medium"
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
+
+      {/* Source Buttons */}
+      <div className="flex gap-4">
+        {/* <a
+          href="https://your-live-project-link.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-white text-black px-4 py-2 rounded-md text-sm font-medium"
+        >
+          Website
+        </a> */}
+        <a
+          href="https://github.com/your-repo-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-white text-black px-4 py-2 rounded-md text-sm font-medium"
+        >
+          Source
+        </a>
+      </div>
+    </div>
+  );
+}

@@ -1,5 +1,4 @@
-"use client";
-
+'use client';
 import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, Text } from "@react-three/drei";
@@ -8,22 +7,32 @@ import ExperienceLogo from "../ui/ExperienceLogo";
 
 export default function IITDelhiExperience() {
   return (
-    <div className="relative h-[400px] w-full overflow-hidden bg-black flex flex-col items-center justify-center">
-      {/* Logo */}
-      <div className="absolute top-4">
-        <ExperienceLogo
-          src="/assets/logos/Screenshot 2024-12-08 at 12.51.07 PM.png"
-          alt="IIT Delhi Logo"
-        />
-      </div>
-
-      {/* 3D Canvas */}
-      <div className="w-full h-full">
-        <Canvas>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[10, 10, 5]} intensity={1} />
-          <Experience />
-        </Canvas>
+    <div className="relative h-[400px] w-full overflow-hidden bg-black">
+      {/* Logo - removed wrapper div and simplified */}
+      <ExperienceLogo
+        src="/assets/logos/Indian Institute of Technology Delhi logo.jpeg"
+        alt="IIT Delhi Logo"
+        size={100}
+      />
+      
+      {/* Canvas */}
+      <Canvas>
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[10, 10, 5]} intensity={1} />
+        <Experience />
+      </Canvas>
+      
+      {/* Text overlay - moved from Experience component */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-10 text-center">
+        <h1 className="text-3xl font-bold text-white drop-shadow-lg">
+          IIT Delhi
+        </h1>
+        <p className="mt-2 text-lg text-gray-200 drop-shadow-lg">
+          Research Intern
+        </p>
+        <p className="mt-2 text-sm text-gray-300 max-w-[300px] mx-auto drop-shadow-lg">
+          GNN for Material Property Prediction
+        </p>
       </div>
     </div>
   );
@@ -31,7 +40,6 @@ export default function IITDelhiExperience() {
 
 function Experience() {
   const graphRef = useRef<THREE.Group>(null);
-
   useFrame((state, delta) => {
     if (graphRef.current) {
       graphRef.current.rotation.y += delta * 0.2;
@@ -41,7 +49,7 @@ function Experience() {
   return (
     <Float speed={1.5} rotationIntensity={1} floatIntensity={2}>
       <group ref={graphRef}>
-        {/* Dynamic graph nodes */}
+        {/* Graph nodes and connections remain the same */}
         {[...Array(10)].map((_, i) => (
           <mesh
             key={i}
@@ -52,12 +60,10 @@ function Experience() {
             ]}
           >
             <sphereGeometry args={[0.15, 16, 16]} />
-            <meshStandardMaterial
-              color={i % 2 === 0 ? "#FF5733" : "#C70039"}
-            />
+            <meshStandardMaterial color={i % 2 === 0 ? "#FF5733" : "#C70039"} />
           </mesh>
         ))}
-        {/* Connections */}
+        {/* Connections remain the same */}
         {[...Array(15)].map((_, i) => {
           const start = new THREE.Vector3(
             Math.random() * 3 - 1.5,
@@ -83,35 +89,6 @@ function Experience() {
             </line>
           );
         })}
-        {/* Labels */}
-        <Text
-          position={[0, 2, 0]}
-          fontSize={0.5}
-          color="white"
-          anchorX="center"
-          anchorY="middle"
-        >
-          IIT Delhi
-        </Text>
-        <Text
-          position={[0, 1.5, 0]}
-          fontSize={0.3}
-          color="white"
-          anchorX="center"
-          anchorY="middle"
-        >
-          Research Intern
-        </Text>
-        <Text
-          position={[0, -2, 0]}
-          fontSize={0.2}
-          color="white"
-          anchorX="center"
-          anchorY="middle"
-          maxWidth={2.5}
-        >
-          GNN for Material Property Prediction
-        </Text>
       </group>
     </Float>
   );
