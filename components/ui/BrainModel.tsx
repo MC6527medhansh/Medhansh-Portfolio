@@ -29,6 +29,7 @@ export default function BrainModel() {
 
   return (
     <Float speed={1.5} rotationIntensity={1} floatIntensity={2}>
+    {/* @ts-ignore */}
       <primitive 
         ref={brainRef} 
         object={gltf.scene} 

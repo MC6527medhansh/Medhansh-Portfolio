@@ -11,7 +11,7 @@ export default function EmployeeAttritionProject() {
 
       {/* Skills Section */}
       <div className="flex flex-wrap gap-2 mb-4">
-        {['Python', 'scikit-learn', 'KNN', 'Pandas'].map((skill) => (
+        {['R', 'scikit-learn', 'KNN', 'Pandas'].map((skill) => (
           <span
             key={skill}
             className="bg-white text-black px-3 py-1 rounded-md text-sm font-medium"

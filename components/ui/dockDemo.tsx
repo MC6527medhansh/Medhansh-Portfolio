@@ -14,18 +14,18 @@ export function DockDemo() {
     <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 bg-white shadow-lg rounded-2xl px-6 py-3">
       <Dock direction="middle">
         {/* GitHub Icon */}
-        <DockIcon onClick={handleGitHub}>
-          <Icons.gitHub className="size-6 cursor-pointer" />
+        <DockIcon>
+          <Icons.gitHub className="size-6 cursor-pointer" onClick={handleGitHub} />
         </DockIcon>
 
         {/* LinkedIn Icon */}
-        <DockIcon onClick={handleLinkedIn}>
-          <Icons.linkedin className="size-6 cursor-pointer" />
+        <DockIcon>
+          <Icons.linkedin className="size-6 cursor-pointer" onClick={handleLinkedIn} />
         </DockIcon>
 
         {/* Mail Icon */}
-        <DockIcon onClick={handleMail}>
-          <Icons.mail className="size-6 cursor-pointer" />
+        <DockIcon>
+          <Icons.mail className="size-6 cursor-pointer" onClick={handleMail} />
         </DockIcon>
       </Dock>
     </div>

@@ -2,10 +2,11 @@
 
 import React, { PropsWithChildren, useRef } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, MotionValue, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 
+// Define DockProps interface
 export interface DockProps extends VariantProps<typeof dockVariants> {
   className?: string;
   magnification?: number;
@@ -17,10 +18,12 @@ export interface DockProps extends VariantProps<typeof dockVariants> {
 const DEFAULT_MAGNIFICATION = 60;
 const DEFAULT_DISTANCE = 140;
 
+// Define dockVariants using class-variance-authority
 const dockVariants = cva(
   "supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 mx-auto mt-2 mb-2 flex h-[58px] w-max gap-2 rounded-2xl border p-2 backdrop-blur-md",
 );
 
+// Dock component
 const Dock = React.forwardRef<HTMLDivElement, DockProps>(
   (
     {
@@ -39,11 +42,11 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
       return React.Children.map(children, (child) => {
         if (React.isValidElement(child) && child.type === DockIcon) {
           return React.cloneElement(child, {
-            ...child.props,
-            mouseX: mouseX,
-            magnification: magnification,
-            distance: distance,
-          });
+            ...(child.props as Record<string, unknown>),
+            mouseX, // Pass MotionValue<number> directly
+            magnification,
+            distance,
+          } as React.ComponentProps<typeof DockIcon>);
         }
         return child;
       });
@@ -69,21 +72,23 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
 
 Dock.displayName = "Dock";
 
+// Define DockIconProps interface
 export interface DockIconProps {
   size?: number;
   magnification?: number;
   distance?: number;
-  mouseX?: any;
+  mouseX?: MotionValue<number>;
   className?: string;
   children?: React.ReactNode;
   props?: PropsWithChildren;
 }
 
+// DockIcon component
 const DockIcon = ({
   size,
   magnification = DEFAULT_MAGNIFICATION,
   distance = DEFAULT_DISTANCE,
-  mouseX,
+  mouseX = useMotionValue(Infinity), // Default MotionValue<number>
   className,
   children,
   ...props

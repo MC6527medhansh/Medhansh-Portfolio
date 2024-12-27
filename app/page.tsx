@@ -67,7 +67,7 @@ export default function PortfolioPage() {
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-black text-center">About Me</h2>
             </BoxReveal>
             <p className="mt-4 text-black md:text-xl max-w-3xl mx-auto text-center">
-              I'm a Statistics student at the University of British Columbia, passionate about data science and software
+              I'm a second year Statistics student at the University of British Columbia, passionate about data science and software
               development. With a strong foundation in computational structures and programming, I'm constantly seeking
               opportunities to apply my skills in real-world scenarios.
             </p>

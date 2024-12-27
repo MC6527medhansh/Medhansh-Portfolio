@@ -15,7 +15,9 @@ export default function VisualCognitionLabExperience() {
       />
       <Canvas>
         <Suspense fallback={null}>
+            {/* @ts-ignore */}
           <ambientLight intensity={0.5} />
+          {/* @ts-ignore */}
           <directionalLight position={[10, 10, 5]} intensity={1} />
           <OrbitControls enableZoom={false} />
           <BrainModel />

@@ -29,6 +29,7 @@ export default function BoatModel() {
 
   return (
     <Float speed={1.5} rotationIntensity={1} floatIntensity={2}>
+    {/* @ts-ignore */}
       <primitive 
         ref={boatRef} 
         object={gltf.scene} 

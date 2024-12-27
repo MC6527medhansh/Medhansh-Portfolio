@@ -83,16 +83,20 @@ const Particles: React.FC<ParticlesProps> = ({
         canvasSize.current.h
       );
       circles.current.forEach((particle) => {
-        context.current.beginPath();
-        context.current.arc(
-          particle.x,
-          particle.y,
-          particle.radius,
-          0,
-          Math.PI * 2
-        );
-        context.current.fillStyle = particle.color;
-        context.current.fill();
+        if (context.current) {
+            context.current.beginPath();
+            context.current.arc(
+            particle.x,
+            particle.y,
+            particle.radius,
+            0,
+            Math.PI * 2
+            );
+        }
+        if (context.current) {
+            context.current.fillStyle = particle.color;
+            context.current.fill();
+        }
       });
     }
   };
