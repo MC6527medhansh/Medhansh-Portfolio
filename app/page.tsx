@@ -19,6 +19,7 @@ import BoxReveal from '@/components/ui/box-reveal'; // Import BoxReveal for anim
 import {ParticlesDemo} from '@/components/ui/particlesDemo'; // Import ParticlesDemo component
 import HTTPSServerProject from '@/components/projects/https-server';
 import FruitNinjaGame from '@/components/projects/fruit-ninja-project';
+import CataractAIProject from '@/components/projects/cataract-ai-project'; // Add this line
 
 
 
@@ -102,6 +103,7 @@ export default function PortfolioPage() {
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-black text-center">Projects</h2>
             </BoxReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              <CataractAIProject />
               <FruitNinjaGame />
               <HTTPSServerProject />
               <EmployeeAttritionProject />

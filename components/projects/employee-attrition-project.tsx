@@ -2,43 +2,57 @@
 
 export default function EmployeeAttritionProject() {
   return (
-    <div className="h-[300px] bg-gray-800 rounded-lg shadow-lg flex flex-col justify-between p-4"
-         style={{ backgroundColor: '#003366' }}>
-      {/* Project Title */}
-      <h3 className="text-xl font-bold tracking-tight text-white mb-4">
-        Employee Attrition Prediction
-      </h3>
+    <div
+      className="h-[300px] rounded-lg shadow-lg flex flex-col justify-between p-4 relative bg-cover bg-center"
+      style={{
+        backgroundImage: "url('/assets/images/attrition.webp')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      {/* Overlay to reduce brightness */}
+      <div
+        className="absolute inset-0 bg-black opacity-30 rounded-lg"
+        style={{ zIndex: 1 }}
+      ></div>
 
-      {/* Skills Section */}
-      <div className="flex flex-wrap gap-2 mb-4">
-        {['R', 'scikit-learn', 'KNN', 'Pandas'].map((skill) => (
-          <span
-            key={skill}
-            className="bg-white text-black px-3 py-1 rounded-md text-sm font-medium"
+      {/* Project Content */}
+      <div className="relative z-10">
+        {/* Project Title */}
+        <h3
+          className="text-xl font-bold tracking-tight text-black mb-4 px-2 py-1 rounded-md"
+          style={{
+            backgroundColor: 'white',
+            display: 'inline-block',
+          }}
+        >
+          Employee Attrition Prediction
+        </h3>
+
+        {/* Skills Section */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {['R', 'KNN', 'Pandas', 'Matplotlib'].map((skill) => (
+            <span
+              key={skill}
+              className="bg-white text-black px-3 py-1 rounded-md text-sm font-medium"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+
+        {/* Source Buttons */}
+        <div className="flex gap-4">
+          <a
+            href="https://github.com/Chadha-Bhavya/DSCI-100-Group-Project"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white text-black px-4 py-2 rounded-md text-sm font-medium"
           >
-            {skill}
-          </span>
-        ))}
-      </div>
-
-      {/* Source Buttons */}
-      <div className="flex gap-4">
-        {/* <a
-          href="https://your-live-project-link.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-white text-black px-4 py-2 rounded-md text-sm font-medium"
-        >
-          Website
-        </a> */}
-        <a
-          href="https://github.com/your-repo-link"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-white text-black px-4 py-2 rounded-md text-sm font-medium"
-        >
-          Source
-        </a>
+            Source
+          </a>
+        </div>
       </div>
     </div>
   );
