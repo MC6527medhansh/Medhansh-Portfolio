@@ -27,7 +27,7 @@ export default function HTTPSServerProject() {
             display: 'inline-block',
           }}
         >
-          HTTPS Server Implementation
+          HTTP Server Implementation
         </h3>
 
         {/* Skills Section */}
