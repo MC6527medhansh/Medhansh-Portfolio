@@ -3,7 +3,7 @@
 // Importing required modules and components
 import { Canvas } from '@react-three/fiber'; // For rendering 3D content
 import { OrbitControls } from '@react-three/drei'; // For controlling 3D camera interactions
-import { Suspense } from 'react'; // For handling lazy loading
+import { Suspense, useState } from 'react'; // For handling lazy loading
 import Link from 'next/link'; // For client-side routing
 import { Button } from '@/components/ui/button'; // Custom button UI component
 import { Input } from '@/components/ui/input'; // Custom input UI component
@@ -24,6 +24,9 @@ import CataractAIProject from '@/components/projects/cataract-ai-project'; // Ad
 
 
 export default function PortfolioPage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen((prev: any) => !prev);
   return (
     <div className="flex flex-col min-h-screen bg-darkgrey dark:bg-gray-900 relative">
       {/* Header Section */}
@@ -35,49 +38,62 @@ export default function PortfolioPage() {
             </Link>
 
             {/* Mobile Hamburger Menu */}
-            <div className="block md:hidden">
             <button
-                className="p-2 rounded-md bg-gray-200 dark:bg-gray-800"
-                aria-label="Open navigation menu"
+                className="block md:hidden p-2 rounded-md focus:outline-none"
+                onClick={toggleMenu}
             >
-                {/* Replace with Hamburger Icon */}
                 <svg
                 className="w-6 h-6 text-black"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
                 >
                 <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16m-7 6h7"
-                ></path>
+                    strokeWidth={2}
+                    d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
+                />
                 </svg>
             </button>
-            </div>
 
             {/* Navigation Links */}
-            <nav className="hidden md:flex gap-4 sm:gap-6">
-            <Link href="#about" className="text-sm font-medium hover:underline underline-offset-4 text-black">
-                About
-            </Link>
-            <Link href="#experience" className="text-sm font-medium hover:underline underline-offset-4 text-black">
-                Experience
-            </Link>
-            <Link href="#projects" className="text-sm font-medium hover:underline underline-offset-4 text-black">
-                Projects
-            </Link>
-            <Link href="#skills" className="text-sm font-medium hover:underline underline-offset-4 text-black">
-                Skills
-            </Link>
-            <Link href="#contact" className="text-sm font-medium hover:underline underline-offset-4 text-black">
-                Contact
-            </Link>
+            <nav
+                className={`${
+                isMenuOpen ? "block" : "hidden"
+                } absolute top-full left-0 w-full bg-white dark:bg-gray-900 md:static md:block md:w-auto`}
+            >
+                <ul className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 p-4 md:p-0">
+                <li>
+                    <Link href="#about" className="text-sm font-medium hover:underline text-black">
+                    About
+                    </Link>
+                </li>
+                <li>
+                    <Link href="#experience" className="text-sm font-medium hover:underline text-black">
+                    Experience
+                    </Link>
+                </li>
+                <li>
+                    <Link href="#projects" className="text-sm font-medium hover:underline text-black">
+                    Projects
+                    </Link>
+                </li>
+                <li>
+                    <Link href="#skills" className="text-sm font-medium hover:underline text-black">
+                    Skills
+                    </Link>
+                </li>
+                <li>
+                    <Link href="#contact" className="text-sm font-medium hover:underline text-black">
+                    Contact
+                    </Link>
+                </li>
+                </ul>
             </nav>
         </div>
-        </header>
+      </header>
 
       {/* Main Content */}
       <main className="flex flex-col items-center w-full">
