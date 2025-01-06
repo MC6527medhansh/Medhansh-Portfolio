@@ -28,31 +28,56 @@ export default function PortfolioPage() {
     <div className="flex flex-col min-h-screen bg-darkgrey dark:bg-gray-900 relative">
       {/* Header Section */}
       <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:bg-gray-900/95 dark:border-gray-800">
-        <div className="container flex h-14 items-center">
-          {/* Logo / Name */}
-          <Link href="/" className="flex items-center space-x-2">
+        <div className="container mx-auto px-4 flex h-14 items-center justify-between">
+            {/* Logo */}
+            <Link href="/" className="flex items-center space-x-2">
             <span className="font-bold text-xl text-black">Medhansh Choubey</span>
-          </Link>
-          {/* Navigation Links */}
-          <nav className="ml-auto flex gap-4 sm:gap-6">
+            </Link>
+
+            {/* Mobile Hamburger Menu */}
+            <div className="block md:hidden">
+            <button
+                className="p-2 rounded-md bg-gray-200 dark:bg-gray-800"
+                aria-label="Open navigation menu"
+            >
+                {/* Replace with Hamburger Icon */}
+                <svg
+                className="w-6 h-6 text-black"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                >
+                <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+                </svg>
+            </button>
+            </div>
+
+            {/* Navigation Links */}
+            <nav className="hidden md:flex gap-4 sm:gap-6">
             <Link href="#about" className="text-sm font-medium hover:underline underline-offset-4 text-black">
-              About
+                About
             </Link>
             <Link href="#experience" className="text-sm font-medium hover:underline underline-offset-4 text-black">
-              Experience
+                Experience
             </Link>
             <Link href="#projects" className="text-sm font-medium hover:underline underline-offset-4 text-black">
-              Projects
+                Projects
             </Link>
             <Link href="#skills" className="text-sm font-medium hover:underline underline-offset-4 text-black">
-              Skills
+                Skills
             </Link>
             <Link href="#contact" className="text-sm font-medium hover:underline underline-offset-4 text-black">
-              Contact
+                Contact
             </Link>
-          </nav>
+            </nav>
         </div>
-      </header>
+        </header>
 
       {/* Main Content */}
       <main className="flex flex-col items-center w-full">

@@ -11,24 +11,25 @@ export function DockDemo() {
   const handleMail = () => window.open('mailto:medhanshchoubey230804@gmail.com', '_blank');
 
   return (
-    <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 bg-white shadow-lg rounded-2xl px-6 py-3">
-      <Dock direction="middle">
-        {/* GitHub Icon */}
-        <DockIcon>
-          <Icons.gitHub className="size-6 cursor-pointer" onClick={handleGitHub} />
-        </DockIcon>
+    <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 bg-white dark:bg-gray-900 shadow-lg rounded-lg px-4 py-2 max-w-[90vw] md:max-w-max">
+        <Dock direction="middle">
+            {/* GitHub Icon */}
+            <DockIcon>
+            <Icons.gitHub className="w-6 h-6 cursor-pointer" onClick={handleGitHub} />
+            </DockIcon>
 
-        {/* LinkedIn Icon */}
-        <DockIcon>
-          <Icons.linkedin className="size-6 cursor-pointer" onClick={handleLinkedIn} />
-        </DockIcon>
+            {/* LinkedIn Icon */}
+            <DockIcon>
+            <Icons.linkedin className="w-6 h-6 cursor-pointer" onClick={handleLinkedIn} />
+            </DockIcon>
 
-        {/* Mail Icon */}
-        <DockIcon>
-          <Icons.mail className="size-6 cursor-pointer" onClick={handleMail} />
-        </DockIcon>
-      </Dock>
+            {/* Mail Icon */}
+            <DockIcon>
+            <Icons.mail className="w-6 h-6 cursor-pointer" onClick={handleMail} />
+            </DockIcon>
+        </Dock>
     </div>
+
   );
 }
 
